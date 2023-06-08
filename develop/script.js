@@ -1,26 +1,64 @@
 //ed9e74b645329e040d2d7fc1db70ac25
+//f1483ebfebd864431fd44f2588c040e8
+//http://api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid=f1483ebfebd864431fd44f2588c040e8
 //create an event listener upon clicking the search button. Whatever the value is in the input field will be the city name
 //create function for getting current data and weather info
+// get any container from your webpage
+// var dataContainer = the name from index.html
+// fetch all the data and then append specific data to the page for the API
+//
 
 var weatherSearchBtn = document.getElementById("search-btn");
 
-console.log(weatherSearchBtn);
+var weatherDataCtn = document.getElementById("cardBody");
+
+// console.log(weatherSearchBtn);
 
 function getWeatherData() {
+  var searchLocation = inputField.value;
+
   var weatherApi =
-    "api.openweathermap.org/data/2.5/forecast?lat=41.87&lon=87.62&appid=ed9e74b645329e040d2d7fc1db70ac25";
-  console.log(weatherApi);
+    "https://api.openweathermap.org/data/2.5/weather?q=" +
+    searchLocation +
+    "&units=imperial&lang=en&appid=f1483ebfebd864431fd44f2588c040e8";
+  // console.log(weatherApi);
 
   //use a fetch function to make a call to an API
+  //return exits the function
+
+  // .then(function (appendWeather) {
+  //   console.log(appendWeather);
+  //   for (i = 0; i < appendWeather.data; i++) {
+  //     var weatherData = document.createElement("div");
+
+  //     weatherData.textContent = appendWeather.data[i].title;
+  //     weatherData.style.fontWeight = "bold";
+
+  //     weatherData.appendChild(weatherDataCtn);
+  //   }
+  // });
   fetch(weatherApi, {
     method: "GET",
-  }).then((res) => {
-    return res.json();
-  });
-  //return exits the function
+  })
+    .then((res) => {
+      return res.json();
+    })
+    .then((data) => console.log(data));
 }
 
-weatherSearchBtn.addEventListener("click", getWeatherData);
+function displayMedia() {
+  getWeatherData();
+}
+
+localStorage.setItem("weathertDataCtn", JSON.stringify(weatherDataCtn));
+
+const test = localStorage.getItem("weatherDataCtn");
+
+console.log("return from local storage", JSON.parse(test));
+
+localStorage.clear();
+
+weatherSearchBtn.addEventListener("click", displayMedia);
 
 //400 level: The API is not reached or that the API you are trying to call does not exist
 
