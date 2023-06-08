@@ -43,7 +43,27 @@ function getWeatherData() {
     .then((res) => {
       return res.json();
     })
-    .then((data) => console.log(data));
+    // .then((weatherData) => console.log(weatherData));
+    .then(function (weatherData) {
+      console.log(weatherData);
+      // for (i = 0; i < weatherData.data; i++) {
+      //   console.log(weatherData);
+      // }
+      const name = weatherData.name;
+      const temp = weatherData.main.temp;
+      const humidity = weatherData.main.humidity;
+      const windSpeed = weatherData.wind.speed;
+      console.log(name, temp, humidity, windSpeed);
+
+      document.querySelector(".card-title").innerText = "Weather in " + name;
+
+      document.querySelector(".temperature").innerText = "Temperature: " + temp;
+
+      document.querySelector(".humidity").innerText = "Humidity: " + humidity;
+
+      document.querySelector(".wind-speed").innerText =
+        "Wind Speed: " + windSpeed;
+    });
 }
 
 function displayMedia() {
