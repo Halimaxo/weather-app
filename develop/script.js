@@ -6,6 +6,8 @@
 // get any container from your webpage
 // var dataContainer = the name from index.html
 // fetch all the data and then append specific data to the page for the API
+
+// api.openweathermap.org/data/2.5/forecast?lat={lat}&lon={lon}&appid={API key}
 //
 
 var weatherSearchBtn = document.getElementById("search-btn");
@@ -17,52 +19,68 @@ var weatherDataCtn = document.getElementById("cardBody");
 function getWeatherData() {
   var searchLocation = inputField.value;
 
-  var weatherApi =
-    "https://api.openweathermap.org/data/2.5/weather?q=" +
+  var latAndLon =
+    "http://api.openweathermap.org/geo/1.0/direct?q=" +
     searchLocation +
-    "&units=imperial&lang=en&appid=f1483ebfebd864431fd44f2588c040e8";
-  // console.log(weatherApi);
+    "&limit=1&appid=f1483ebfebd864431fd44f2588c040e8";
+
+  console.log(latAndLon);
 
   //use a fetch function to make a call to an API
   //return exits the function
 
-  // .then(function (appendWeather) {
-  //   console.log(appendWeather);
-  //   for (i = 0; i < appendWeather.data; i++) {
-  //     var weatherData = document.createElement("div");
-
-  //     weatherData.textContent = appendWeather.data[i].title;
-  //     weatherData.style.fontWeight = "bold";
-
-  //     weatherData.appendChild(weatherDataCtn);
-  //   }
-  // });
-  fetch(weatherApi, {
+  fetch(latAndLon, {
     method: "GET",
   })
     .then((res) => {
       return res.json();
     })
-    // .then((weatherData) => console.log(weatherData));
-    .then(function (weatherData) {
-      console.log(weatherData);
-      // for (i = 0; i < weatherData.data; i++) {
-      //   console.log(weatherData);
-      // }
-      const name = weatherData.name;
-      const temp = weatherData.main.temp;
-      const humidity = weatherData.main.humidity;
-      const windSpeed = weatherData.wind.speed;
-      console.log(name, temp, humidity, windSpeed);
 
-      document.querySelector(".card-title").innerText = "Weather in " + name;
+    .then(function (latAndLonData) {
+      const lat = latAndLonData[0].lat;
+      const lon = latAndLonData[0].lon;
 
-      document.querySelector(".temperature").innerText = "Temperature: " + temp;
+      console.log(lat, lon, latAndLonData);
 
-      document.querySelector(".humidity").innerText = "Humidity: " + humidity;
+      var weatherApi =
+        "http://api.openweathermap.org/data/2.5/forecast?lat=" +
+        lat +
+        "&lon=" +
+        lon +
+        "&appid=f1483ebfebd864431fd44f2588c040e8";
+      console.log(weatherApi);
 
-      document.querySelector(".wind-speed").innerText =
-        "Wind Speed: " + windSpeed;
+      fetch(weatherApi, {
+        method: "GET",
+      })
+        .then((res) => {
+          return res.json();
+        })
+
+        // .then((weatherData) => console.log(weatherData));
+        .then(function (weatherData) {
+          console.log(weatherData);
+          // for (i = 0; i < weatherData.data; i++) {
+          //   console.log(weatherData);
+          // }
+          const name = weatherData.city.name;
+          const temp = weatherData.list[0].main.temp;
+          const humidity = weatherData.list[0].main.humidity;
+          const windSpeed = weatherData.list[0].wind.speed;
+          console.log(name, temp, humidity, windSpeed);
+
+          document.querySelector(".card-title").innerText =
+            "Weather in " + name;
+
+          document.querySelector(".temperature").innerText =
+            "Temperature: " + temp;
+
+          document.querySelector(".humidity").innerText =
+            "Humidity: " + humidity;
+
+          document.querySelector(".wind-speed").innerText =
+            "Wind Speed: " + windSpeed;
+        });
     });
 }
 
