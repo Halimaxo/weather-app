@@ -47,7 +47,7 @@ function getWeatherData() {
         lat +
         "&lon=" +
         lon +
-        "&appid=f1483ebfebd864431fd44f2588c040e8";
+        "&units=imperial&appid=f1483ebfebd864431fd44f2588c040e8";
       console.log(weatherApi);
 
       fetch(weatherApi, {
@@ -80,6 +80,16 @@ function getWeatherData() {
 
           document.querySelector(".wind-speed").innerText =
             "Wind Speed: " + windSpeed;
+
+          for (i = 0; i < weatherData.list.length; i = i + 8) {
+            console.log();
+
+            const dayCard = `<div>${weatherData.list[i].dt_txt}</div> 
+            <div>${weatherData.list[i].main.temp}</div>`;
+            document.querySelector(".forecast-container").innerHTML += dayCard;
+
+            //+= appends to the end of the string youre building.
+          }
         });
     });
 }
