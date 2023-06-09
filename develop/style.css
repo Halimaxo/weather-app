@@ -1,0 +1,11 @@
+.forecast-container {
+  display: flex;
+  gap: 6px;
+  /* margin-top: 12px; */
+  padding-top: 12px;
+}
+
+.forecast-card {
+  background-color: pink;
+  padding: 6px;
+}

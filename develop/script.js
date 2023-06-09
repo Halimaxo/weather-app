@@ -84,12 +84,14 @@ function getWeatherData() {
           for (i = 0; i < weatherData.list.length; i = i + 8) {
             console.log();
 
-            const dayCard = `<div>${
+            const dayCard = `<div class="forecast-card"> <div>${
               "Date: " + weatherData.list[i].dt_txt
             }</div> 
             <div>${"Temperature: " + weatherData.list[i].main.temp}</div>
             <div>${"Humidity: " + weatherData.list[i].main.humidity}</div>
-            <div>${"Wind Speed: " + weatherData.list[i].wind.speed}</div>`;
+            <div>${
+              "Wind Speed: " + weatherData.list[i].wind.speed
+            }</div></div>`;
             document.querySelector(".forecast-container").innerHTML += dayCard;
 
             //+= appends to the end of the string youre building.
