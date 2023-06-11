@@ -14,6 +14,8 @@ var weatherSearchBtn = document.getElementById("search-btn");
 
 var weatherDataCtn = document.getElementById("cardBody");
 
+var forecastCtn = document.querySelector(".forecast-container");
+
 // console.log(weatherSearchBtn);
 
 function getWeatherData() {
@@ -24,7 +26,7 @@ function getWeatherData() {
     searchLocation +
     "&limit=1&appid=f1483ebfebd864431fd44f2588c040e8";
 
-  console.log(latAndLon);
+  // console.log(latAndLon);
 
   //use a fetch function to make a call to an API
   //return exits the function
@@ -40,7 +42,7 @@ function getWeatherData() {
       const lat = latAndLonData[0].lat;
       const lon = latAndLonData[0].lon;
 
-      console.log(lat, lon, latAndLonData);
+      // console.log(lat, lon, latAndLonData);
 
       var weatherApi =
         "http://api.openweathermap.org/data/2.5/forecast?lat=" +
@@ -67,7 +69,7 @@ function getWeatherData() {
           const temp = weatherData.list[0].main.temp;
           const humidity = weatherData.list[0].main.humidity;
           const windSpeed = weatherData.list[0].wind.speed;
-          console.log(name, temp, humidity, windSpeed);
+          // console.log(name, temp, humidity, windSpeed);
 
           document.querySelector(".card-title").innerText =
             "Weather in " + name;
@@ -81,21 +83,92 @@ function getWeatherData() {
           document.querySelector(".wind-speed").innerText =
             "Wind Speed: " + windSpeed;
 
-          for (i = 0; i < weatherData.list.length; i = i + 8) {
-            console.log();
+          const forecastTemp = weatherData.list[8].main.temp;
+          const forecastHumidity = weatherData.list[8].main.humidity;
+          const forecastWindSpeed = weatherData.list[8].wind.speed;
 
-            const dayCard = `<div class="forecast-card"> <div>${
-              "Date: " + weatherData.list[i].dt_txt
-            }</div> 
-            <div>${"Temperature: " + weatherData.list[i].main.temp}</div>
-            <div>${"Humidity: " + weatherData.list[i].main.humidity}</div>
-            <div>${
-              "Wind Speed: " + weatherData.list[i].wind.speed
-            }</div></div>`;
-            document.querySelector(".forecast-container").innerHTML += dayCard;
+          const forecastTemp2 = weatherData.list[16].main.temp;
+          const forecastHumidity2 = weatherData.list[16].main.humidity;
+          const forecastWindSpeed2 = weatherData.list[16].wind.speed;
 
-            //+= appends to the end of the string youre building.
-          }
+          const forecastTemp3 = weatherData.list[24].main.temp;
+          const forecastHumidity3 = weatherData.list[24].main.humidity;
+          const forecastWindSpeed3 = weatherData.list[24].wind.speed;
+
+          const forecastTemp4 = weatherData.list[32].main.temp;
+          const forecastHumidity4 = weatherData.list[32].main.humidity;
+          const forecastWindSpeed4 = weatherData.list[32].wind.speed;
+
+          // const forecastTemp5 = weatherData.list[40].main.temp;
+          // const forecastHumidity5 = weatherData.list[40].main.humidity;
+          // const forecastWindSpeed5 = weatherData.list[40].wind.speed;
+
+          document.querySelector(".forecast-header").innerText =
+            "4 Day Forecast";
+
+          document.querySelector(".forecast-temperature1").innerText =
+            "Temperature: " + forecastTemp;
+
+          document.querySelector(".forecast-humidity1").innerText =
+            "Humidity: " + forecastHumidity;
+
+          document.querySelector(".forecast-wind-speed1").innerText =
+            "Wind Speed: " + forecastWindSpeed;
+          document.querySelector(".forecast-temperature2").innerText =
+            "Temperature: " + forecastTemp2;
+
+          document.querySelector(".forecast-humidity2").innerText =
+            "Humidity: " + forecastHumidity2;
+
+          document.querySelector(".forecast-wind-speed2").innerText =
+            "Wind Speed: " + forecastWindSpeed2;
+
+          document.querySelector(".forecast-temperature3").innerText =
+            "Temperature: " + forecastTemp3;
+
+          document.querySelector(".forecast-humidity3").innerText =
+            "Humidity: " + forecastHumidity3;
+
+          document.querySelector(".forecast-wind-speed3").innerText =
+            "Wind Speed: " + forecastWindSpeed3;
+
+          document.querySelector(".forecast-temperature4").innerText =
+            "Temperature: " + forecastTemp4;
+
+          document.querySelector(".forecast-humidity4").innerText =
+            "Humidity: " + forecastHumidity4;
+
+          document.querySelector(".forecast-wind-speed4").innerText =
+            "Wind Speed: " + forecastWindSpeed4;
+
+          // document.querySelector(".forecast-temperature5").innerText =
+          //   "Temperature: " + forecastTemp5;
+
+          // document.querySelector(".forecast-humidity5").innerText =
+          //   "Humidity: " + forecastHumidity5;
+
+          // document.querySelector(".forecast-wind-speed5").innerText =
+          //   "Wind Speed: " + forecastWindSpeed5;
+
+          // for (i = 0; i < weatherData.list.length; i = i + 8) {
+          // console.log();
+
+          // const dayCard = `<div class="forecast-card">
+          // <div>${"Date: " + weatherData.list[i].dt_txt}</div>
+          // <div>${"Temperature: " + weatherData.list[i].main.temp}</div>
+          // <div>${"Humidity: " + weatherData.list[i].main.humidity}</div>
+          // <div>${"Wind Speed: " + weatherData.list[i].wind.speed}</div>
+          // </div>`;
+          // document.querySelector(".forecast-container").innerHTML += dayCard;
+
+          //+= appends to the end of the string youre building.
+
+          // var forecastCard = document.createElement("a");
+
+          // forecastCard.textContent = weatherData.list[i].main.temp;
+
+          // forecastCtn.appendChild(forecastCard);
+          // }
         });
     });
 }
