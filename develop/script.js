@@ -72,7 +72,7 @@ function getWeatherData() {
           // console.log(name, temp, humidity, windSpeed);
 
           document.querySelector(".card-title").innerText =
-            "Weather in " + name;
+            "Current Weather In " + name;
 
           document.querySelector(".temperature").innerText =
             "Temperature: " + temp;
@@ -104,7 +104,16 @@ function getWeatherData() {
           // const forecastWindSpeed5 = weatherData.list[40].wind.speed;
 
           document.querySelector(".forecast-header").innerText =
-            "4 Day Forecast";
+            "5 Day Forecast";
+
+          document.querySelector(".forecast-temperature0").innerText =
+            "Temperature: " + temp;
+
+          document.querySelector(".forecast-humidity0").innerText =
+            "Humidity: " + humidity;
+
+          document.querySelector(".forecast-wind-speed0").innerText =
+            "Wind Speed: " + windSpeed;
 
           document.querySelector(".forecast-temperature1").innerText =
             "Temperature: " + forecastTemp;
