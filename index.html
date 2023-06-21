@@ -16,7 +16,7 @@
       <h1 class="display-4">Weather Dashboard</h1>
     </div>
     <div class="row d-flex justify-content-center">
-      <div class="search-container bg-danger col-lg-3 col-md-6 col-sm-10">
+      <div class="search-container col-lg-3 col-md-6 col-sm-10">
         <p class="fw-bold m-2">Search for a City:</p>
         <input
           type="search"
@@ -28,9 +28,9 @@
         <button class="btn-primary btn m-2" id="search-btn">Search</button>
       </div>
       <div class="diplay-container col-lg-8 col-md-6 col-sm-10 m-3 row">
-        <div class="card col-11">
-          <div class="card-header">
-            <p class="todays-date">Date:</p>
+        <div class="card col-11" id="current-weather-container">
+          <div class="card-header current-date">
+            <p class="todays-date"></p>
             <img src="" alt="" class="icon" />
           </div>
           <div class="card-body" id="cardBody">
@@ -40,31 +40,34 @@
             <p class="wind-speed card-text"></p>
           </div>
         </div>
-        <div>
+        <div class="forecast-container">
           <h5 class="card-title forecast-header"></h5>
         </div>
         <div class="forecast-container">
-          <div>
+          <!-- <div >
+            <h5 class="card-title forecast-header"></h5>
+          </div> -->
+          <div class="weather-data">
             <p class="card-text forecast-temperature0"></p>
             <p class="card-text forecast-humidity0"></p>
             <p class="card-text forecast-wind-speed0"></p>
           </div>
-          <div>
+          <div class="weather-data">
             <p class="card-text forecast-temperature1"></p>
             <p class="card-text forecast-humidity1"></p>
             <p class="card-title forecast-wind-speed1"></p>
           </div>
-          <div>
+          <div class="weather-data">
             <p class="card-text forecast-temperature2"></p>
             <p class="card-text forecast-humidity2"></p>
             <p class="card-title forecast-wind-speed2"></p>
           </div>
-          <div>
+          <div class="weather-data">
             <p class="card-text forecast-temperature3"></p>
             <p class="card-text forecast-humidity3"></p>
             <p class="card-title forecast-wind-speed3"></p>
           </div>
-          <div>
+          <div class="weather-data">
             <p class="card-text forecast-temperature4"></p>
             <p class="card-text forecast-humidity4"></p>
             <p class="card-title forecast-wind-speed4"></p>

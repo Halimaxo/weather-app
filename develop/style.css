@@ -1,11 +1,35 @@
 .forecast-container {
   display: flex;
   gap: 6px;
-  /* margin-top: 12px; */
+  margin-top: 12px;
   padding-top: 12px;
+  background-color: rgb(193, 235, 244);
 }
 
 .forecast-card {
   background-color: pink;
   padding: 6px;
+}
+
+#current-weather-container {
+  background-color: rgb(164, 237, 252);
+  margin-bottom: 20px;
+}
+
+.search-container {
+  background-color: rgb(139, 223, 240);
+}
+
+.display-4 {
+  background-color: rgb(67, 210, 239);
+}
+
+.forecast-header {
+  background-color: rgb(193, 235, 244);
+}
+
+.weather-data {
+  background-color: rgb(164, 228, 242);
+  margin: 10px;
+  padding: 10px;
 }

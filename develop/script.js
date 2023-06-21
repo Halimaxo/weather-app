@@ -65,6 +65,16 @@ function getWeatherData() {
           // for (i = 0; i < weatherData.data; i++) {
           //   console.log(weatherData);
           // }
+          const currentDate = new Date().toLocaleDateString("en-us", {
+            weekday: "long",
+            year: "numeric",
+            month: "short",
+            day: "numeric",
+          });
+
+          document.querySelector(".current-date").innerText =
+            "Date: " + currentDate;
+
           const name = weatherData.city.name;
           const temp = weatherData.list[0].main.temp;
           const humidity = weatherData.list[0].main.humidity;
