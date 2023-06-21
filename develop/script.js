@@ -79,6 +79,7 @@ function getWeatherData() {
           const temp = weatherData.list[0].main.temp;
           const humidity = weatherData.list[0].main.humidity;
           const windSpeed = weatherData.list[0].wind.speed;
+          const date0 = weatherData.list[0].dt_txt;
           // console.log(name, temp, humidity, windSpeed);
 
           document.querySelector(".card-title").innerText =
@@ -96,18 +97,22 @@ function getWeatherData() {
           const forecastTemp = weatherData.list[8].main.temp;
           const forecastHumidity = weatherData.list[8].main.humidity;
           const forecastWindSpeed = weatherData.list[8].wind.speed;
+          const date1 = weatherData.list[8].dt_txt;
 
           const forecastTemp2 = weatherData.list[16].main.temp;
           const forecastHumidity2 = weatherData.list[16].main.humidity;
           const forecastWindSpeed2 = weatherData.list[16].wind.speed;
+          const date2 = weatherData.list[16].dt_txt;
 
           const forecastTemp3 = weatherData.list[24].main.temp;
           const forecastHumidity3 = weatherData.list[24].main.humidity;
           const forecastWindSpeed3 = weatherData.list[24].wind.speed;
+          const date3 = weatherData.list[24].dt_txt;
 
           const forecastTemp4 = weatherData.list[32].main.temp;
           const forecastHumidity4 = weatherData.list[32].main.humidity;
           const forecastWindSpeed4 = weatherData.list[32].wind.speed;
+          const date4 = weatherData.list[32].dt_txt;
 
           // const forecastTemp5 = weatherData.list[40].main.temp;
           // const forecastHumidity5 = weatherData.list[40].main.humidity;
@@ -125,6 +130,8 @@ function getWeatherData() {
           document.querySelector(".forecast-wind-speed0").innerText =
             "Wind Speed: " + windSpeed;
 
+          document.querySelector(".date-0").innerText = "Date: " + date0;
+
           document.querySelector(".forecast-temperature1").innerText =
             "Temperature: " + forecastTemp;
 
@@ -133,6 +140,9 @@ function getWeatherData() {
 
           document.querySelector(".forecast-wind-speed1").innerText =
             "Wind Speed: " + forecastWindSpeed;
+
+          document.querySelector(".date-1").innerText = "Date: " + date1;
+
           document.querySelector(".forecast-temperature2").innerText =
             "Temperature: " + forecastTemp2;
 
@@ -141,6 +151,8 @@ function getWeatherData() {
 
           document.querySelector(".forecast-wind-speed2").innerText =
             "Wind Speed: " + forecastWindSpeed2;
+
+          document.querySelector(".date-2").innerText = "Date: " + date2;
 
           document.querySelector(".forecast-temperature3").innerText =
             "Temperature: " + forecastTemp3;
@@ -151,6 +163,8 @@ function getWeatherData() {
           document.querySelector(".forecast-wind-speed3").innerText =
             "Wind Speed: " + forecastWindSpeed3;
 
+          document.querySelector(".date-3").innerText = "Date: " + date3;
+
           document.querySelector(".forecast-temperature4").innerText =
             "Temperature: " + forecastTemp4;
 
@@ -159,6 +173,8 @@ function getWeatherData() {
 
           document.querySelector(".forecast-wind-speed4").innerText =
             "Wind Speed: " + forecastWindSpeed4;
+
+          document.querySelector(".date-4").innerText = "Date: " + date4;
 
           // document.querySelector(".forecast-temperature5").innerText =
           //   "Temperature: " + forecastTemp5;
