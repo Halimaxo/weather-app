@@ -22,7 +22,7 @@ function getWeatherData() {
   var searchLocation = inputField.value;
 
   var latAndLon =
-    "https://api.openweathermap.org/geo/1.0/direct?q=" +
+    "http://api.openweathermap.org/geo/1.0/direct?q=" +
     searchLocation +
     "&limit=1&appid=f1483ebfebd864431fd44f2588c040e8";
 
@@ -45,7 +45,7 @@ function getWeatherData() {
       // console.log(lat, lon, latAndLonData);
 
       var weatherApi =
-        "https://api.openweathermap.org/data/2.5/forecast?lat=" +
+        "http://api.openweathermap.org/data/2.5/forecast?lat=" +
         lat +
         "&lon=" +
         lon +
