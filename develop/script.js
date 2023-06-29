@@ -45,7 +45,7 @@ function getWeatherData() {
       // console.log(lat, lon, latAndLonData);
 
       var weatherApi =
-        "http://api.openweathermap.org/data/2.5/forecast?lat=" +
+        "https://api.openweathermap.org/data/2.5/forecast?lat=" +
         lat +
         "&lon=" +
         lon +
