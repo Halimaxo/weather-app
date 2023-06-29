@@ -16,6 +16,8 @@ This is a weather app that will help people find the weather information for the
 
 [Deployed page](https://halimaxo.github.io/weather-app/)
 
+![Screenshot of deployed page](./assets/weather-app-screenshot.png)
+
 ## Usage
 
 To look at weather patterns/predictions.
